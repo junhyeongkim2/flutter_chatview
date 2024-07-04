@@ -27,7 +27,9 @@ import 'package:chatview/src/models/models.dart';
 import '../utils/constants/constants.dart';
 import 'link_preview.dart';
 import 'reaction_widget.dart';
-
+String _formatTimestamp(DateTime timestamp) {
+  return "${timestamp.hour}:${timestamp.minute < 10 ? '0' + timestamp.minute.toString() : timestamp.minute} ${timestamp.hour >= 12 ? 'PM' : 'AM'}";
+}
 class TextMessageView extends StatelessWidget {
   const TextMessageView({
     Key? key,
@@ -69,6 +71,8 @@ class TextMessageView extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final textMessage = message.message;
+    final date = message.createdAt;
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -93,14 +97,31 @@ class TextMessageView extends StatelessWidget {
                   linkPreviewConfig: _linkPreviewConfig,
                   url: textMessage,
                 )
-              : Text(
-                  textMessage,
-                  style: _textStyle ??
-                      textTheme.bodyMedium!.copyWith(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+              : Column(
+            children: [
+              Text(
+                textMessage,
+                style: _textStyle ??
+                    textTheme.bodyMedium!.copyWith(
+                      color: Colors.white,
+                      fontSize: 16,
+                    ),
+              ),
+              SizedBox(height: 3),
+              Text(
+                _formatTimestamp(date),
+                style: isMessageBySender
+                    ? textTheme.bodyMedium!.copyWith(
+                  color: Colors.white,
+                  fontSize: 10,
+                )
+                    : textTheme.bodyMedium!.copyWith(
+                  color: Colors.black,
+                  fontSize: 10,
                 ),
+              ),
+            ],
+          ),
         ),
         if (message.reaction.reactions.isNotEmpty)
           ReactionWidget(

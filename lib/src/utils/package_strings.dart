@@ -20,19 +20,19 @@
  * SOFTWARE.
  */
 class PackageStrings {
-  static const String today = "Today";
-  static const String yesterday = "Yesterday";
+  static const String today = "오늘";
+  static const String yesterday = "어제";
   static const String repliedToYou = "Replied to you";
-  static const String repliedBy = "Replied by";
-  static const String more = "More";
+  static const String repliedBy = "답장 By";
+  static const String more = "더보기";
   static const String unsend = "Unsend";
-  static const String reply = "Reply";
-  static const String replyTo = "Replying to";
+  static const String reply = "답장";
+  static const String replyTo = "답장 To";
   static const String message = "Message";
   static const String reactionPopupTitle =
       "Tap and hold to multiply your reaction";
   static const String photo = "Photo";
   static const String send = "Send";
   static const String you = "You";
-  static const String report = "Report";
+  static const String report = "신고";
 }
