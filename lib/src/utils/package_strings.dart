@@ -22,12 +22,12 @@
 class PackageStrings {
   static const String today = "오늘";
   static const String yesterday = "어제";
-  static const String repliedToYou = "Replied to you";
-  static const String repliedBy = "답장 By";
+  static const String repliedToYou = "답장 to you";
+  static const String repliedBy = "답장 by";
   static const String more = "더보기";
-  static const String unsend = "Unsend";
+  static const String unsend = "닫기";
   static const String reply = "답장";
-  static const String replyTo = "답장 To";
+  static const String replyTo = "답장 to";
   static const String message = "Message";
   static const String reactionPopupTitle =
       "Tap and hold to multiply your reaction";
